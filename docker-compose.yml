@@ -1,0 +1,47 @@
+services:
+  redis:
+    image: redis:7
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"
+      - "6831:6831/udp"
+  prometheus:                          
+    image: prom/prometheus:latest       
+    ports:                              
+      - "9090:9090"                     
+    volumes:                            
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro  
+    command:                            
+      - "--config.file=/etc/prometheus/prometheus.yml"      
+  atlascare:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount data directory so you can edit JSON fixtures without rebuilding
+      - ./data:/app/data:ro
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GEMINI_NO_INDEX=true
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - DEBUG=${DEBUG:-false}
+      - DATA_DIR=data
+      - REDIS_URL=redis://redis:6379/0
+      - OTEL_EXPORTER=jaeger
+      - OTEL_JAEGER_AGENT_HOST=jaeger
+      - OTEL_SERVICE_NAME=atlascare
+      - OTEL_JAEGER_AGENT_PORT=6831
+      - OTEL_JAEGER_ENDPOINT=http://jaeger:14268/api/traces
+    depends_on:
+      - redis
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import httpx; httpx.get('http://localhost:8000/health').raise_for_status()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped

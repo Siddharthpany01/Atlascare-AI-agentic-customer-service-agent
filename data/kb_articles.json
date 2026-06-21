@@ -1,0 +1,36 @@
+{
+  "articles": [
+    {
+      "article_id": "KB-001",
+      "title": "Refund Policy and Threshold Rules",
+      "tags": ["refund", "threshold", "payments", "escalation", "return"],
+      "content": "Acme Retail processes refunds automatically for amounts up to Rs.25,000 for GLOD tier and Rs.10,000 for STANDARD tier via the Payments Gateway. Refund requests exceeding these limits must be escalated to a human specialist via the CRM. The specialist team has a 24-hour response SLA. Customers must raise refund requests within 30 days of delivery. Damaged or defective items are eligible for a full refund regardless of value, subject to specialist approval for amounts above the threshold.",
+      "last_updated": "2025-04-01",
+      "applies_to": ["electronics", "apparel", "home_goods"]
+    },
+    {
+      "article_id": "KB-002",
+      "title": "Return Window Policy",
+      "tags": ["return", "window", "eligibility", "policy"],
+      "content": "Customers may initiate a return within 30 days of the delivery date. Items must be unused, in original packaging, and accompanied by the original invoice. Electronics are eligible for return within 7 days of delivery if found defective on arrival. Apparel and home goods follow the standard 30-day return window. Items marked as non-returnable at the time of purchase are not eligible. To initiate a return, the customer must contact support with their order ID.",
+      "last_updated": "2025-04-01",
+      "applies_to": ["electronics", "apparel", "home_goods"]
+    },
+    {
+      "article_id": "KB-003",
+      "title": "Escalation SLA and Specialist Handling",
+      "tags": ["escalation", "sla", "specialist", "crm", "human_agent"],
+      "content": "When a refund request exceeds Rs.25,000 or involves a disputed transaction, the case is automatically escalated to the specialist team via the CRM. The specialist team guarantees a first response within 24 hours on business days. The customer will be notified by email and SMS when a case is created. Case priority levels are: low (standard queries), medium (refunds under threshold with disputes), high (refunds above threshold or damaged goods). Platinum and Gold tier customers receive priority routing.",
+      "last_updated": "2025-04-15",
+      "applies_to": ["electronics", "apparel", "home_goods"]
+    },
+    {
+      "article_id": "KB-004",
+      "title": "Partial Cancellation and Reshipping Rules",
+      "tags": ["cancel", "partial", "reship", "order", "item"],
+      "content": "Customers may cancel individual line items from a multi-item order as long as the order has not yet been delivered. For orders already in transit, partial cancellation is not available and the customer must initiate a return after delivery. If a cancelled item was already paid, a refund will be issued to the original payment method within 5 business days. Reshipping of a replacement item is available for defective goods upon specialist approval. A new tracking number will be issued within 24 hours of approval.",
+      "last_updated": "2025-04-10",
+      "applies_to": ["electronics", "apparel", "home_goods"]
+    }
+  ]
+}

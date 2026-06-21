@@ -1,0 +1,42 @@
+[
+  {
+    "id": "J1_basic",
+    "input": "Where is my order ORD-78321?",
+    "expected": {
+      "tool_calls_count": 1,
+      "tools_used": ["oms_get_order"],
+      "escalation": false,
+      "latency_under_ms": 3000
+    }
+  },
+  {
+    "id": "J2_compound",
+    "input": "Please cancel line item 1 for order ORD-78450 and refund it to my original payment method. The address is correct.",
+    "expected": {
+      "tools_used": ["oms_cancel_item", "crm_create_case"],
+      "escalation": false,
+      "payments_called": false,
+      "crm_case_created": true
+    }
+  },
+  {
+    "id": "J3_refund_escalation",
+    "input": "I want a full refund of 42000 for my laptop on order ORD-78321.",
+    "expected": {
+      "escalation": true,
+      "payments_called": false,
+      "crm_case_created": false,
+      "tools_used": ["payments_refund"]
+    }
+  },
+  {
+    "id": "J4_compund1",
+    "input": "Please cancel line item 2 for order ORD-78321 and refund it to my original payment method. The address is correct.",
+    "expected": {
+      "escalation": false,
+      "payments_called": true,
+      "tools_used": ["oms_cancel_item", "payments_refund"]
+    }
+  }
+
+]

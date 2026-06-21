@@ -1,0 +1,78 @@
+{
+  "customers": [
+    {
+      "customer_id": "CUST-001",
+      "name": "Priya Sharma",
+      "email": "priya.sharma@email.com",
+      "phone": "+91-9876543210",
+      "tier": "gold",
+      "order_ids": ["ORD-78321", "ORD-78450"],
+      "preferred_refund_method": "HDFC_CREDIT",
+      "addresses": [
+        {
+          "label": "home",
+          "line1": "12 MG Road, Koramangala",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "pincode": "560034"
+        },
+        {
+          "label": "office",
+          "line1": "4th Floor, Prestige Tower, Outer Ring Road",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "pincode": "560103"
+        }
+      ]
+    },
+    {
+      "customer_id": "CUST-002",
+      "name": "Rahul Mehta",
+      "email": "rahul.mehta@email.com",
+      "phone": "+91-9845001122",
+      "tier": "standard",
+      "order_ids": ["ORD-78500"],
+      "preferred_refund_method": "UPI",
+      "addresses": [
+        {
+          "label": "home",
+          "line1": "22 Linking Road, Bandra West",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "pincode": "400050"
+        },
+        {
+          "label": "gym",
+          "line1": "10th Floor, Hall Tower, bybass Road",
+          "city": "Bhubaneswar",
+          "state": "Odisha",
+          "pincode": "751024"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "CASE-A1B2C3",
+      "customer_id": "CUST-001",
+      "order_id": "ORD-78321",
+      "status": "open",
+      "priority": "high",
+      "description": "Customer requesting refund of Rs.42000 for damaged laptop. Exceeds auto-refund threshold. Requires specialist review.",
+      "amount_inr": 42000.00,
+      "trace_id": "trc_20250510142200_a1b2c3d4",
+      "created_at": "2025-05-10T14:22:00Z"
+    },
+    {
+      "case_id": "CASE-D4E5F6",
+      "customer_id": "CUST-002",
+      "order_id": "ORD-78500",
+      "status": "resolved",
+      "priority": "low",
+      "description": "Customer requested address update for in-transit order. Updated and confirmed.",
+      "amount_inr": null,
+      "trace_id": "trc_20250508091500_d4e5f6g7",
+      "created_at": "2025-05-08T09:15:00Z"
+    }
+  ]
+}
